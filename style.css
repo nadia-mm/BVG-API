@@ -1,0 +1,36 @@
+.nowrap {
+    display:flex;
+    flex-direction: nowrap;
+}
+
+.wrap {
+    display:flex;
+    /* flex-direction: wrap; */
+}
+
+.row {
+    display:flex;
+    flex-direction:row;
+}
+
+#mapId {
+    height: 60%; 
+    justify-content: center;
+}
+
+#origin,#destination{
+    width:100%;
+}
+
+#manual{
+    text-align:justify ;
+    background: linear-gradient(
+        to right,
+    
+        rgba(73, 158, 235),
+        rgb(108, 170, 228),
+        rgb(161, 203, 241),
+        rgb(216, 230, 243)
+      );
+}
+

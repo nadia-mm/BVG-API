@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <title>BVG Route</title>
+</head>
+
+<body>
+
+    <div id="manual" class="wrap">
+        The goal of this personal project is to calculate the duration of the next journey and display all the stops on
+        a map. Please note you may need to click on the duration button several times because of connectivity issues to the BVG API.
+        According to Wikipedia, BVG is the main public transport company in Berlin (Germany). Please enter the stops in
+        the Berlin area.
+    </div>
+
+    <div class="wrap">
+        <input id="origin" placeholder="Type origin (e.g. Berlin Nordbahnhof)" type="text" minlength="1">
+    </div>
+    <div class="wrap">
+        <input id="destination" placeholder="Type destination (e.g. Alexanderplatz)" type="text" minlength="1">
+    </div>
+
+    <div id="transportId">
+
+        <div class="wrap">
+            <input type="checkbox" name="transport" value="suburban" id="suburbanId"><label
+                for="suburbanId">Suburban</label>
+            <input type="checkbox" name="transport" value="tram" id="tramId"><label for="tramId">Tram</label>
+            <input type="checkbox" name="transport" value="subway" id="subwayId"><label for="subwayId">Subway</label>
+        </div>
+        <div class="wrap">
+            <input type="checkbox" name="transport" value="bus" id="busId"><label for="busId">Bus</label>
+            <input type="checkbox" name="transport" value="ferry" id="ferryId"><label for="ferryId">Ferry</label>
+            <input type="checkbox" name="transport" value="express" id="expressId"><label
+                for="expressId">Express</label>
+        </div>
+        <div class="wrap">
+            <input type="checkbox" name="transport" value="regional" id="regionalId"><label for="">Regional</label>
+            <input type="checkbox" value="all" onclick="tickAll(this)" id="allId"><label for="allId">All</label>
+        </div>
+    </div>
+
+    <div class="nowrap">
+        <button onclick="calculateDuration()">Duration</button>
+    </div>
+    <div class="nowrap">
+        <div id="duration"></div>
+    </div>
+
+
+
+
+    <div id="mapId" class="nowrap"></div>
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+</body>
+
+</html>

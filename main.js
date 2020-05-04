@@ -2,8 +2,8 @@
 async function calculateDuration() {
 
     //check entered data
-    let origin = document.getElementById("origin");// Berlin Nordbahnhof 900000007104
-    let destination = document.getElementById("destination"); //Alexanderplatz 900000100003
+    let origin = document.getElementById("origin");
+    let destination = document.getElementById("destination");
     let duration = document.getElementById("duration");
     checkData(origin.value, destination.value);
 
@@ -12,9 +12,9 @@ async function calculateDuration() {
 
     async function getJourney(origin, destination) {
 
-        let originID = await getID(origin);
+        let originID = await getStopID(origin);
         checkID(originID);
-        let destinationID = await getID(destination);
+        let destinationID = await getStopID(destination);
         checkID(destinationID);
         let getQuery = "https://2.bvg.transport.rest/journeys?from=" + originID + "&to=" + destinationID + "&results=1";
 
@@ -23,7 +23,6 @@ async function calculateDuration() {
         for (let checkbox of checkboxes) {
             if (checkbox.checked) {
                 getQuery += "&" + checkbox.value + "=true";
-                // console.log(getQuery);
             }
         }
         let journeys = await fetch(getQuery);
@@ -35,7 +34,7 @@ async function calculateDuration() {
         //Display stops on the map
         getLongitudeLatitudeBVG(getQuery);
 
-
+        console.log("From "+origin+" to "+destination);
         console.log("departure: ", moment(v_departure.toString()).format("YYYY-MM-DDTHH:mm:ss.SSSZ"));
         console.log("arrival: ", moment(v_arrival.toString()).format("YYYY-MM-DDTHH:mm:ss.SSSZ"));
         let diff = moment(v_arrival.toString()) - moment(v_departure.toString());
@@ -89,8 +88,6 @@ async function getLongitudeLatitudeBVG(url) {
         v_location = await v_stop.location;
         v_lat = await v_location.latitude;
         v_lng = await v_location.longitude;
-        //console.log(v_lat);
-        //console.log(v_lng);
 
         marker = L.marker([v_lat, v_lng]);
         marker.addTo(mymap);
@@ -130,10 +127,9 @@ function checkID(id) {
 }
 
 // get destination and origin IDs to get the matching journey
-async function getID(name) {
+async function getStopID(name) {
     let getQuery = "https://2.bvg.transport.rest/locations?query=" + encodeURIComponent(name) + "&results=1";
     let locations = await fetch(getQuery);
     let parsed = await locations.json();
-    console.log(name + " ID :" + parsed[0].id);
     return parsed[0].id;
 }

@@ -1,5 +1,6 @@
-#BVG -API
+# BVG -API
 
+## Instructions
 The goal of this personal project is to calculate the duration of the next journey in the Berlin area and displays all the stops on a map.
 
 To do so, I used the BVG API, Leaflet.js and Moment.js .

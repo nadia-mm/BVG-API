@@ -27,10 +27,18 @@
     background: linear-gradient(
         to right,
     
-        rgba(73, 158, 235),
-        rgb(108, 170, 228),
-        rgb(161, 203, 241),
-        rgb(216, 230, 243)
+        rgb(155, 34, 13),
+        rgb(224, 123, 123),
+        rgb(214, 173, 170),
+        rgb(243, 217, 216)
       );
 }
 
+img{
+    height:80%;
+    width:100%;
+}
+
+#buttonDiv{
+    text-align: center;
+}

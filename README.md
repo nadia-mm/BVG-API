@@ -5,7 +5,7 @@ The goal of this personal project is to calculate the duration of the next journ
 
 To do so, I used the [BVG API](https://2.bvg.transport.rest/docs), [Leaflet.js](https://leafletjs.com/reference-1.6.0.html) and [Moment.js](https://momentjs.com/docs/) .
 Please follow the instruction or try the web app  [here](https://codesandbox.io/s/wonderful-chaum-mvnu6):
-- `git clone https://github.com/Nadieva/BVG-API.git`
+- `git clone https://github.com/nadia-mm/BVG-API.git`
 -  open BVG-API/index.html in a Chrome web browser
 
 
